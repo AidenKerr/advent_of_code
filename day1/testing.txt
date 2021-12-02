@@ -1,0 +1,42 @@
+fn part_two_2(nums: Vec<i32>) -> i32 {
+    let mut count = 0;
+    let mut last = 0;
+
+    for i in 0..(nums.len() - 3 + 1) {
+        let mut sum = 0;
+        if last != -1 {
+            for j in 0..3 {
+                sum += nums[i + j];
+            }
+
+            if sum > last {
+                count += 1;
+            }
+        }
+        
+        last = sum;
+    }
+
+    count
+}
+
+fn part_two_3(nums: Vec<i32>) -> i32 {
+    let mut count = 0;
+    let mut sum = 0;
+
+    for i in 0..3 {
+        sum += nums[i];
+    }
+    let mut last = sum;
+
+    for i in 1..(nums.len() - 3) {
+        sum -= nums[i - 1];
+        sum += nums[i + 2];
+        if sum > last {
+            count += 1;
+        }
+        last = sum;
+    }
+
+    count
+}
