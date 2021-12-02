@@ -1,3 +1,5 @@
+// these are failed refactors that I tried after submitting my first one
+
 fn part_two_2(nums: Vec<i32>) -> i32 {
     let mut count = 0;
     let mut last = 0;
